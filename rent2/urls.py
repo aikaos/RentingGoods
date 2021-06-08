@@ -1,15 +1,7 @@
-from django.urls import path, include
-from . import views
-from rest_framework import routers
+from django.urls import path
+from rent2.views import OperationListView
 
-router = routers.DefaultRouter()
-router.register('Owners', views.OwnerView)
-router.register('Goods', views.GoodsView)
-router.register('Operation', views.OperationView)
-router.register('Deposit', views.DepositView)
-router.register('Category', views.CategoryView)
-router.register('Branch', views.BranchView)
 
 urlpatterns = [
-    path('', include(router.urls))
+    path('', OperationListView.as_view(), name='opview')
 ]

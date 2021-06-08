@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Owner, Goods, Operation, Deposit, Category, Branch
+from rent2.models import Owner, Goods, Operation, Deposit, Category, Branch
 
 
 class OwnerSerializer(serializers.HyperlinkedModelSerializer):

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Operations</title>
+</head>
+<body>
+
+    <h2>
+        All operations
+    </h2>
+    {% for operation in object_list %}
+    <ul>
+        <li>Имя: {{operation.first_name}}</li>
+        <li>Фамилия: {{operation.last_name}}</li>
+        <li>Номер телефона: {{operation.phone_number}}</li>
+        <li>Id: {{operation.id}}</li>
+    </ul>
+    {%endfor%}
+
+</body>
+</html>
