@@ -2,7 +2,7 @@ from rent2.models import Owner, Goods, Operation, Deposit, Category, Branch
 from .serializers import OwnerSerializer, GoodsSerializer, OperationSerializer, DepositSerializer, CategorySerializer, \
     BranchSerializer
 from rest_framework import viewsets
-from rest_framework import generics
+from rest_framework import generics, permissions
 # Create your views here.
 
 
@@ -12,6 +12,7 @@ class DetailGoods(generics.RetrieveAPIView):
 
 
 class OwnerView(viewsets.ModelViewSet):
+    permission_classes = (permissions.AllowAny,)
     queryset = Owner.objects.all()
     serializer_class = OwnerSerializer
 
