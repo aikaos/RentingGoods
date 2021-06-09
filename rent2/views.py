@@ -4,8 +4,10 @@ from django.views.generic.list import ListView
 # Create your views here.
 
 
-class OperationListView(ListView):
+class OwnerListView(ListView):
     model = Owner
     template_name = 'operations/operation.html'
 
+def show_main(request):
+    return render(request, 'main/main.html')
 
