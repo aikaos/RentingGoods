@@ -102,6 +102,7 @@ class AccountType(models.Model):
 
 
 class Branch(models.Model):
+    name = models.CharField('Наименование', max_length=100, null=True, blank=False)
     street = models.CharField('Улица', max_length=200)
     city = models.CharField(max_length=100)
     district = models.CharField('Район', max_length=50)

@@ -9,6 +9,8 @@ router.register('Operation', views.OperationView)
 router.register('Deposit', views.DepositView)
 router.register('Category', views.CategoryView)
 router.register('Branch', views.BranchView)
+router.register('Renter', views.RenterView)
+
 
 urlpatterns = [
     path('', include(router.urls)),

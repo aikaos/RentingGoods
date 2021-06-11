@@ -1,5 +1,6 @@
 from rest_framework import serializers
-from rent2.models import Owner, Goods, Operation, Deposit, Category, Branch
+from rent2.models import Owner, Goods, Operation, Deposit, Category, Branch, \
+    Renter, Account
 
 
 class OwnerSerializer(serializers.HyperlinkedModelSerializer):
@@ -9,6 +10,10 @@ class OwnerSerializer(serializers.HyperlinkedModelSerializer):
 
 
 class GoodsSerializer(serializers.HyperlinkedModelSerializer):
+    category_of_goods = serializers.SlugRelatedField('name', read_only=True)
+    deposit = serializers.SlugRelatedField('deposit_cost', read_only=True)
+    branch = serializers.SlugRelatedField('name', read_only=True)
+
     class Meta:
         model = Goods
         fields = '__all__'
@@ -21,12 +26,15 @@ class DepositSerializer(serializers.HyperlinkedModelSerializer):
 
 
 class OperationSerializer(serializers.HyperlinkedModelSerializer):
+    good = serializers.SlugRelatedField('name', read_only=True)
+    owner = serializers.SlugRelatedField('last_name', read_only=True)
     class Meta:
         model = Operation
         fields = '__all__'
 
 
 class CategorySerializer(serializers.HyperlinkedModelSerializer):
+
     class Meta:
         model = Category
         fields = '__all__'
@@ -35,4 +43,14 @@ class CategorySerializer(serializers.HyperlinkedModelSerializer):
 class BranchSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Branch
+        fields = '__all__'
+
+class RenterSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Renter
+        fields = '__all__'
+
+
+class AccountSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
         fields = '__all__'
