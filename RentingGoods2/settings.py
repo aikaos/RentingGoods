@@ -134,5 +134,5 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.IsAuthenticatedOrReadOnly',
     ]
 }
-LOGIN_REDIRECT_URL = 'http://127.0.0.1:8000/consumer/'
-LOGOUT_REDIRECT_URL = 'http://127.0.0.1:8000/consumer/'
+LOGIN_REDIRECT_URL = 'http://127.0.0.1:8000'
+LOGOUT_REDIRECT_URL = 'http://127.0.0.1:8000'

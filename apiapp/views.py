@@ -1,8 +1,8 @@
 from rest_framework.generics import get_object_or_404
 
-from rent2.models import Owner, Goods, Operation, Deposit, Category, Branch, Renter, Account
+from rent2.models import Owner, Goods, Operation, Deposit, Category, Branch, Renter
 from .serializers import OwnerSerializer, GoodsSerializer, OperationSerializer, DepositSerializer, CategorySerializer, \
-    BranchSerializer, RenterSerializer, AccountSerializer
+    BranchSerializer, RenterSerializer
 from rest_framework import viewsets
 from rest_framework import generics, permissions
 # Create your views here.

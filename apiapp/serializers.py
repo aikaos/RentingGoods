@@ -1,12 +1,13 @@
 from rest_framework import serializers
 from rent2.models import Owner, Goods, Operation, Deposit, Category, Branch, \
-    Renter, Account
+    Renter
 
 
 class OwnerSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Owner
-        fields = '__all__'
+        # fields = '__all__'
+        exclude = ('account',)
 
 
 class GoodsSerializer(serializers.HyperlinkedModelSerializer):
@@ -51,6 +52,6 @@ class RenterSerializer(serializers.HyperlinkedModelSerializer):
         fields = '__all__'
 
 
-class AccountSerializer(serializers.HyperlinkedModelSerializer):
-    class Meta:
-        fields = '__all__'
+# class AccountSerializer(serializers.HyperlinkedModelSerializer):
+#     class Meta:
+#         fields = '__all__'

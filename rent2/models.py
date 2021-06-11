@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.db import models
 
 # Create your models here.
@@ -37,6 +38,7 @@ class Owner(models.Model):
     registration_date = models.DateTimeField(verbose_name='Дата регистрации',
                                              auto_now_add=True)
     phone_number = models.CharField('Телефонный номер', max_length=50)
+    account = models.OneToOneField(User, models.CASCADE, null=True)
 
     def __str__(self):
         return f"{self.last_name} {self.first_name[0]}."
@@ -50,13 +52,13 @@ class PaymentAccount(models.Model):
         return f"{self.name}"
 
 
-class Account(models.Model):
-    login = models.CharField('Логин', max_length=50)
-    password = models.CharField('Пароль', max_length=50)
-    dealer = models.OneToOneField(Owner, on_delete=models.CASCADE)
-
-    def __str__(self):
-        return "login and Password"
+# class Account(models.Model):
+#     login = models.CharField('Логин', max_length=50)
+#     password = models.CharField('Пароль', max_length=50)
+#     dealer = models.OneToOneField(Owner, on_delete=models.CASCADE)
+#
+#     def __str__(self):
+#         return "login and Password"
 
 
 class Goods(models.Model):
