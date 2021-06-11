@@ -16,4 +16,5 @@ urlpatterns = [
     path('', include(router.urls)),
     path('goods-details/<int:pk>/', views.DetailGoods.as_view()),
 
+
 ]

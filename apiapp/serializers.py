@@ -1,19 +1,21 @@
+from django.contrib.auth.models import User
 from rest_framework import serializers
 from rent2.models import Owner, Goods, Operation, Deposit, Category, Branch, \
     Renter
 
 
-class OwnerSerializer(serializers.HyperlinkedModelSerializer):
+class OwnerSerializer(serializers.ModelSerializer):
+    account = serializers.StringRelatedField(read_only=True)
     class Meta:
         model = Owner
-        # fields = '__all__'
-        exclude = ('account',)
+        fields = '__all__'
+
 
 
 class GoodsSerializer(serializers.HyperlinkedModelSerializer):
-    category_of_goods = serializers.SlugRelatedField('name', read_only=True)
-    deposit = serializers.SlugRelatedField('deposit_cost', read_only=True)
-    branch = serializers.SlugRelatedField('name', read_only=True)
+    # category_of_goods = serializers.SlugRelatedField('name', read_only=True)
+    # deposit = serializers.SlugRelatedField('deposit_cost', read_only=True)
+    # branch = serializers.StringRelatedField(read_only=True)
 
     class Meta:
         model = Goods

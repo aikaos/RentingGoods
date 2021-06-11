@@ -38,7 +38,7 @@ class Owner(models.Model):
     registration_date = models.DateTimeField(verbose_name='Дата регистрации',
                                              auto_now_add=True)
     phone_number = models.CharField('Телефонный номер', max_length=50)
-    account = models.OneToOneField(User, models.CASCADE, null=True)
+    account = models.OneToOneField(User, models.CASCADE, null=True, related_name='account')
 
     def __str__(self):
         return f"{self.last_name} {self.first_name[0]}."

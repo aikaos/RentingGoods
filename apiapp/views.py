@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from rest_framework.generics import get_object_or_404
 
 from rent2.models import Owner, Goods, Operation, Deposit, Category, Branch, Renter
@@ -6,6 +7,7 @@ from .serializers import OwnerSerializer, GoodsSerializer, OperationSerializer, 
 from rest_framework import viewsets
 from rest_framework import generics, permissions
 # Create your views here.
+
 
 class RenterView(viewsets.ModelViewSet):
     queryset = Renter.objects.all()
