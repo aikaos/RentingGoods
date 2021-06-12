@@ -37,12 +37,17 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
     # added apps
     'rent2',
     'apiapp',
     'rest_framework',
     'rest_auth',
-    'rest_framework.authtoken'
+    'rest_framework.authtoken',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'rest_auth.registration',
 
 ]
 
@@ -142,3 +147,6 @@ REST_FRAMEWORK = {
 }
 LOGIN_REDIRECT_URL = 'http://127.0.0.1:8000'
 LOGOUT_REDIRECT_URL = 'http://127.0.0.1:8000'
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+SITE_ID = 1
